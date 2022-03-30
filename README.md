@@ -1,3 +1,10 @@
+I you meet this issue https://github.com/famiu/nvim-reload/issues/8,
+just remove these under vim-polyglot
+![image](https://user-images.githubusercontent.com/53520949/160841723-d0cf07f7-95fc-46b3-b855-9526910ef686.png)
+
+
+# Origin author's readme
+---
 # nvim-reload
 ## About
 Nvim-reload is a Neovim plugin that allows you to reload your entire Neovim config completely, including your start plugins. It also reloads all lua modules inside your Neovim config directory.
