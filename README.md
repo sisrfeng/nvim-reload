@@ -1,4 +1,4 @@
-I you meet this issue https://github.com/famiu/nvim-reload/issues/8,
+If you meet this issue https://github.com/famiu/nvim-reload/issues/8,
 just remove these under vim-polyglot
 ![image](https://user-images.githubusercontent.com/53520949/160841723-d0cf07f7-95fc-46b3-b855-9526910ef686.png)
 
@@ -7,44 +7,47 @@ just remove these under vim-polyglot
 ---
 # nvim-reload
 ## About
-Nvim-reload is a Neovim plugin that allows you to reload your entire Neovim config completely, including your start plugins. It also reloads all lua modules inside your Neovim config directory.
+Nvim-reload is a Neovim plugin that allows you to reload your entire Neovim config completely,
+including your start plugins.
+It also reloads all lua modules inside your Neovim config directory.
 
-**THIS PROJECT IS NO LONGER BEING MAINTAINED. YOU MIGHT STILL BE ABLE TO USE IT BUT DO NOT EXPECT ANY ISSUES YOU HAVE WITH IT TO BE FIXED. THOSE WILLING TO MAINTAIN IT CAN FEEL FREE TO CREATE A FORK**
+this project is no longer being maintained.
+you might still be able to use it but do not expect any issues you have with it to be fixed.
+    those willing to maintain it can feel free to create a fork
 
 ### Requires:
-* Neovim >= 0.5
 * [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 
-## How to install
-* [packer.nvim](https://github.com/wbthomason/packer.nvim/):
-```
-use 'famiu/nvim-reload'
-```
-
-* [paq-nvim](https://github.com/savq/paq-nvim/)
-```
-paq 'famiu/nvim-reload'
-```
-
-* [vim-plug](https://github.com/junegunn/vim-plug/):
 ```
 Plug 'famiu/nvim-reload'
 ```
 
 ## How to use
-Just install the plugin and it'll define two commands for you, `:Reload` and `:Restart`, to reload and restart your Vim config, respectively. Note that 'restart' here just means reloading and manually triggering the `VimEnter` autocmd to emulate a new run of Vim, it will not actually restart Vim.
+Just install the plugin and it'll define two commands for you,
+`:Reload` and `:Restart`,
+to reload and restart your Vim config, respectively.
+Note that 'restart' here just means reloading and
+manually triggering the `VimEnter` autocmd to emulate a new run of Vim, it will not actually restart Vim.
 
-You can also use the following Lua functions `require('nvim-reload').Reload()` and `require('nvim-reload').Restart()` instead of the `:Reload` and `:Restart` commands.
+You can also use the following Lua functions `require('nvim-reload').Reload()` and `require('nvim-reload').Restart()` 
+instead of the `:Reload` and `:Restart` commands.
 
 ### Configuration
 By default, nvim-reload reloads:
 * Your init file.
 * Your config files (VimL files in `stdpath('config')`. 
-* Your start plugins (plugins that are automatically loaded when Neovim is started, located in `stdpath('data')/site/pack/*/start/*`).
+* Your start plugins
+    (plugins that are automatically loaded when Neovim is started,
+    located in `stdpath('data')/site/pack/*/start/*`).
 
-**NOTE:** The asterisks used above are file globs, not literal asterisks.
+    **NOTE:** The asterisks used above are file globs, not literal asterisks.
 
-In case you didn't know, Lua caches the modules you load using `require()`. Which can prevent you from reloading your configuration since Lua will use the cached version of your config instead of the modified version. So the plugin also unloads the Lua modules inside your Neovim config located in `stdpath('config')/lua`, which makes Lua actually reload them.
+In case you didn't know,
+    Lua caches the modules you load using `require()`.
+    Which can prevent you from reloading your configuration since
+        Lua will use the cached version of your config instead of the modified version.
+    So the plugin also unloads the Lua modules inside your Neovim config located in `stdpath('config')/lua`,
+        which makes Lua actually reload them.
 
 If you want, you can change the default behavior through the following configuration options.
 
