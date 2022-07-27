@@ -57,28 +57,28 @@ local function path_exists(path)
 end
 
 -- local function get_runtime_files_in_path(runtimepath)
-    -- -- Ignore opt plugins
-    -- if string.match(runtimepath, "/site/pack/.-/opt") then
-    --     return {}
+        -- -- Ignore opt plugins
+        -- if string.match(runtimepath, "/site/pack/.-/opt") then
+        --     return {}
+        -- end
+        --
+        -- local runtime_files = {}
+        --
+        -- -- Search each subdirectory  listed in viml_subdirs of runtimepath for files
+        -- for _, subdir in ipairs(viml_subdirs) do
+        --     local viml_path = string.format("%s/%s", runtimepath, subdir)
+        --
+        --     if path_exists(viml_path) then
+        --         local files = scan_dir(viml_path, { search_pattern = '%.n?vim$', hidden = true })
+        --
+        --         for _, file in ipairs(files) do
+        --             runtime_files[#runtime_files+1] = file
+        --         end
+        --     end
+        -- end
+        --
+        -- return runtime_files
     -- end
-    --
-    -- local runtime_files = {}
-    --
-    -- -- Search each subdirectory  listed in viml_subdirs of runtimepath for files
-    -- for _, subdir in ipairs(viml_subdirs) do
-    --     local viml_path = string.format("%s/%s", runtimepath, subdir)
-    --
-    --     if path_exists(viml_path) then
-    --         local files = scan_dir(viml_path, { search_pattern = '%.n?vim$', hidden = true })
-    --
-    --         for _, file in ipairs(files) do
-    --             runtime_files[#runtime_files+1] = file
-    --         end
-    --     end
-    -- end
-    --
-    -- return runtime_files
--- end
 
 local function get_lua_modules_in_path(runtimepath)
     local luapath = string.format("%s/lua", runtimepath)
@@ -188,12 +188,12 @@ end
     end
 
 -- Restart Vim without having to close and run again
-    function M.Restart()
-        -- Reload config
-        M.Reload()
+function M.Restart()
+    -- Reload config
+    M.Reload()
 
-        -- Manually run VimEnter autocmd to emulate a new run of Vim
-        cmd('doautocmd VimEnter')
-    end
+    -- Manually run VimEnter autocmd to emulate a new run of Vim
+    cmd('doautocmd VimEnter')
+end
 
 return M
