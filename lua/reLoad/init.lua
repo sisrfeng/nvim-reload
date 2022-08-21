@@ -52,6 +52,7 @@
 
         -- Search each runtime path for files
         local function reload_vimL()
+        -- 现在没调用这函数, 只处理lua
             for _, a_runtime in ipairs(M.vim_reload_dirs)  do
                 -- Expand the globs and get the result as a list
                 local paths = fn.glob(a_runtime, 0, 1)
@@ -175,9 +176,66 @@
         -- M.post_reload_hook()
     end
 
-    function M.Restart()
+    function M.ReStart()
         M.ReLua() 
         cmd('doautocmd VimEnter')
     end
-
+-- 本lua文件最终的返回
 return M
+
+
+
+-- 之前放在/home/wf/dotF/cfg/nvim/lua/my_cfg.lua的关于reload的配置
+        -- local load2 = require('nvim-reload')
+        --     -- load2.pre_reload_hook = function()
+        --     --     print('准备reload!')
+        --     -- end
+        --
+        --     local plugin_dirs = vim.fn.stdpath('data') .. '/plugged/*'  -- If you use vim-plug
+        --             -- -- If you use Neovim's built-in plugin system
+        --             -- -- Or a plugin manager that uses it (eg: packer.nvim)
+        --             -- local plugin_dirs = vim.fn.stdpath('data') .. '/site/pack/*/start/*'
+        --
+        --      --   reload all VimL files in them
+        --         load2.vim_reload_dirs = {
+        --             -- vim.fn.stdpath('config'),
+        --                                     --先不加这行只reload我的init.vim就好,
+        --             plugin_dirs
+        --         }
+        --                   -- vim_reload_dirs:
+        --                   --    Table(字典)
+        --                   --    containing  list of directories to reload the Vim files from.
+        --                   --    This plugin will look into the subdirectories of each directory provided here
+        --                   --         compiler
+        --                   --         doc
+        --                   --         keymap
+        --                   --         syntax
+        --                   --         plugin
+        --
+        --         -- `files_reload_external`:  上述的补充
+        --         load2.files_reload_external = {
+        --             vim.fn.stdpath('config') .. '/init.vim'
+        --         }
+        --
+        --
+        --      --  reload all lua files in them
+        --         load2.lua_reload_dirs = {
+        --             vim.fn.stdpath('config')
+        --             -- 会进入lua目录吧
+        --             -- Note: the line below may cause issues reloading your config:
+        --             -- plugin_dirs
+        --         }
+        --
+        --         -- 上述的补充
+        --         load2.modules_reload_external = {}
+        --         -- reload.modules_reload_external = { 'packer' }
+        --
+        --
+        --     -- -- Function to run after reloading the config.
+        --     -- load2.post_reload_hook = function()
+        --     --     print('reloaded! leo__________________________')
+        --     --     -- require('feline').reset_highlights()
+        --     -- end
+    --要退出vim重启才生效, reload不行, 还是自己用vimL写吧
+    -- -- nvim-reload的配置结束-<--<--<--<--<-<-<
+

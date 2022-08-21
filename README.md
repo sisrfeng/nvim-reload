@@ -24,13 +24,13 @@ Plug 'famiu/nvim-reload'
 
 ## How to use
 Just install the plugin and it'll define two commands for you,
-`:Reload` and `:Restart`,
+`:ReLua` and `:Restart`,
 to reload and restart your Vim config, respectively.
 Note that 'restart' here just means reloading and
 manually triggering the `VimEnter` autocmd to emulate a new run of Vim, it will not actually restart Vim.
 
-You can also use the following Lua functions `require('nvim-reload').Reload()` and `require('nvim-reload').Restart()` 
-instead of the `:Reload` and `:Restart` commands.
+You can also use the following Lua functions `require('nvim-reload').ReLua()` and `require('nvim-reload').Restart()` 
+instead of the `:ReLua` and `:Restart` commands.
 
 ### Configuration
 By default, nvim-reload reloads:
